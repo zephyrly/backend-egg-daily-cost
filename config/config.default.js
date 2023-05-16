@@ -1,3 +1,10 @@
+/*
+ * @Date: 2023-05-16 17:34:29
+ * @LastEditors: okzfans
+ * @LastEditTime: 2023-05-16 18:52:04
+ * @Description: nothing
+ * Copyright (c) 2023 by okzfans, All Rights Reserved.
+ */
 /* eslint valid-jsdoc: "off" */
 
 'use strict'
@@ -21,10 +28,21 @@ module.exports = (appInfo) => {
     // add your user config here
     const userConfig = {
         // myAppName: 'egg',
+        uploadDir: 'app/public/upload',
     }
 
     config.jwt = {
         secret: 'okzfans',
+    }
+
+    config.multipart = {
+        mode: 'file',
+    }
+
+    config.cors = {
+        origin: '*', // 允许所有跨域访问
+        credentials: true, // 允许 Cookie 跨域跨域
+        allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
     }
 
     config.security = {

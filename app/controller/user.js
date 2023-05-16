@@ -1,11 +1,10 @@
 /*
  * @Date: 2023-05-15 10:16:11
  * @LastEditors: okzfans
- * @LastEditTime: 2023-05-15 18:46:49
+ * @LastEditTime: 2023-05-16 19:06:41
  * @Description: nothing
  * Copyright (c) 2023 by okzfans, All Rights Reserved.
  */
-// controller/user.js
 'use strict'
 
 const Controller = require('egg').Controller
@@ -135,7 +134,7 @@ class UserController extends Controller {
 
     async editUserInfo() {
         const { ctx, app } = this
-        const { signature = '' } = ctx.request.body
+        const { signature = '' , avatar = ''} = ctx.request.body
         try {
             let user_id
             const token = ctx.request.header.authorization
@@ -148,6 +147,7 @@ class UserController extends Controller {
             const result = await ctx.service.user.editUserInfo({
                 ...userinfo,
                 signature,
+                avatar
             })
             ctx.body = {
                 code: 200,
@@ -156,6 +156,7 @@ class UserController extends Controller {
                     id: user_id,
                     signature,
                     username: userinfo.username,
+                    avatar
                 },
             }
         } catch (error) {

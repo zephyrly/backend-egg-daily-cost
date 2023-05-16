@@ -25,7 +25,8 @@ module.exports = app => {
   router.post('/api/user/register', controller.user.register);
   router.post('/api/user/login', controller.user.login);
   router.post('/api/user/get_userinfo', _jwt ,controller.user.getUserInfo); // 获取用户信息
-  router.post('/api/user/edit_userinfo', _jwt ,controller.user.editUserInfo); 
+  router.post('/api/user/edit_userinfo', _jwt ,controller.user.editUserInfo);
+  router.post('/api/upload' ,controller.upload.upload);
 
   router.get('/api/user/test', _jwt , controller.user.test);
 };
