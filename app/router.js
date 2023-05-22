@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-05-11 19:02:58
  * @LastEditors: okzfans
- * @LastEditTime: 2023-05-17 15:24:44
+ * @LastEditTime: 2023-05-22 17:42:42
  * @Description: nothing
  * Copyright (c) 2023 by okzfans, All Rights Reserved.
  */
@@ -37,6 +37,9 @@ module.exports = (app) => {
     router.post('/api/bill/update', _jwt, controller.bill.update); // 账单更新
     router.post('/api/bill/delete', _jwt, controller.bill.delete); // 账单删除
     router.get('/api/bill/data', _jwt, controller.bill.data); // 获取数据
+
+    //typelist
+    router.get('/api/type/list', _jwt, controller.type.list); // 获取消费类型列表
 
 
 }
