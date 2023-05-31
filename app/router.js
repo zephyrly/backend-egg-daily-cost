@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-05-11 19:02:58
  * @LastEditors: okzfans
- * @LastEditTime: 2023-05-22 17:42:42
+ * @LastEditTime: 2023-05-31 15:01:35
  * @Description: nothing
  * Copyright (c) 2023 by okzfans, All Rights Reserved.
  */
@@ -24,7 +24,7 @@ module.exports = (app) => {
     const _jwt = middleware.jwtErr(app.config.jwt.secret)
     router.post('/api/user/register', controller.user.register)
     router.post('/api/user/login', controller.user.login)
-    router.post('/api/user/get_userinfo', _jwt, controller.user.getUserInfo) // 获取用户信息
+    router.get('/api/user/get_userinfo', _jwt, controller.user.getUserInfo) // 获取用户信息
     router.post('/api/user/edit_userinfo', _jwt, controller.user.editUserInfo)
     router.post('/api/upload', controller.upload.upload)
 
@@ -40,6 +40,17 @@ module.exports = (app) => {
 
     //typelist
     router.get('/api/type/list', _jwt, controller.type.list); // 获取消费类型列表
+
+    // 上传头像
+    router.post('/api/upload', _jwt, controller.upload.upload); // 上传图片
+    
+
+    // 大文件
+    router.post('/checkfile', controller.bigfileUpload.checkfile); // 检查文件
+    router.post('/uploadfile', controller.bigfileUpload.uploadfile); // 上传文件
+    router.post('/mergeFile', controller.bigfileUpload.mergeFile); // 合并文件
+    
+
 
 
 }

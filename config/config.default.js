@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-05-16 17:34:29
  * @LastEditors: okzfans
- * @LastEditTime: 2023-05-16 18:52:04
+ * @LastEditTime: 2023-05-31 16:38:01
  * @Description: nothing
  * Copyright (c) 2023 by okzfans, All Rights Reserved.
  */
@@ -36,8 +36,10 @@ module.exports = (appInfo) => {
     }
 
     config.multipart = {
-        mode: 'file',
-    }
+        mode: 'file',  // 可选值：stream、file
+        fileExtensions: ['']
+    };
+
 
     config.cors = {
         origin: '*', // 允许所有跨域访问

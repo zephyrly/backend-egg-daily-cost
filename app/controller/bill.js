@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-05-17 09:34:04
  * @LastEditors: okzfans
- * @LastEditTime: 2023-05-17 16:31:10
+ * @LastEditTime: 2023-05-25 14:56:46
  * @Description: nothing
  * Copyright (c) 2023 by okzfans, All Rights Reserved.
  */
@@ -87,8 +87,7 @@ class BillController extends Controller {
                 return moment(Number(item.date)).format('YYYY-MM') == date
             })
             // 格式化数据，将其变成我们设置好的对象格式
-            let listMap = _list
-                .reduce((curr, item) => {
+            let listMap = _list.reduce((curr, item) => {
                     const date = moment(Number(item.date)).format('YYYY-MM-DD')
 
                     // 如果能在累加的数组中找到当前日期，那么将数组加入当前bills中
@@ -98,7 +97,7 @@ class BillController extends Controller {
                         curr.findIndex((item) => item.date == date) > -1
                     ) {
                         const index = curr.findIndex(
-                            (item) => item.date == data
+                            (item) => item.date == date
                         )
                         curr[index].bills.push(item)
                     }
